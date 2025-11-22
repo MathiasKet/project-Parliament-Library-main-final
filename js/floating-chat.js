@@ -24,10 +24,10 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// WhatsApp button (opens chat to +233 103 2971)
+// WhatsApp button (opens chat to +233 53 103 2971)
 whatsappBtn.addEventListener('click', () => {
   // wa.me links must be digits only: country code + number, no plus sign or spaces
-  window.open('https://wa.me/2331032971', '_blank');
+  window.open('https://wa.me/233531032971', '_blank');
   chatOptions.style.display = 'none';
 });
 
