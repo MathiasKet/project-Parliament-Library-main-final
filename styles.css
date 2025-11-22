@@ -1414,35 +1414,58 @@ body {
     }
 
     .hero {
-        height: 500px;
+        height: 400px;
     }
 
     .slideshow-btn {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
-
+    
     .slideshow-btn svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
-
+    
     .hero-content {
-        padding-top: 0;
-        padding-bottom: 0;
-        height: 100%;
+        padding: 0 10px;
     }
-
+    
     .hero-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
     }
-
+    
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 1.25rem;
     }
-
+    
     .search-container {
-        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .search-container input,
+    .search-container select {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .slideshow-dots {
+        bottom: 15px;
+        gap: 8px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
     }
 
     .quick-access-grid {
