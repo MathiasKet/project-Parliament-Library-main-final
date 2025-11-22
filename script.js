@@ -9,10 +9,12 @@ const mainDropdownBtn = document.querySelector('.dropdown-btn');
 const mainDropdownMenu = document.querySelector('.dropdown-menu');
 
 // Toggle mobile menu
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
-});
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+    });
+}
 
 // Handle mobile dropdowns
 mobileDropdownBtns.forEach(btn => {
@@ -20,69 +22,77 @@ mobileDropdownBtns.forEach(btn => {
         const isExpanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', !isExpanded);
         const menu = btn.nextElementSibling;
-        menu.classList.toggle('active');
+        if (menu) {
+            menu.classList.toggle('active');
+        }
     });
 });
 
 // Handle main dropdown
-mainDropdownBtn.addEventListener('click', () => {
-    const isExpanded = mainDropdownBtn.getAttribute('aria-expanded') === 'true';
-    mainDropdownBtn.setAttribute('aria-expanded', !isExpanded);
-    mainDropdownMenu.classList.toggle('active');
-});
+if (mainDropdownBtn && mainDropdownMenu) {
+    mainDropdownBtn.addEventListener('click', () => {
+        const isExpanded = mainDropdownBtn.getAttribute('aria-expanded') === 'true';
+        mainDropdownBtn.setAttribute('aria-expanded', !isExpanded);
+        mainDropdownMenu.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    }
-});
+if (mobileMenu && mobileMenuBtn) {
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
 
 // Handle keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        mainDropdownMenu.classList.remove('active');
-        mainDropdownBtn.setAttribute('aria-expanded', 'false');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        if (mainDropdownMenu) mainDropdownMenu.classList.remove('active');
+        if (mainDropdownBtn) mainDropdownBtn.setAttribute('aria-expanded', 'false');
     }
 });
 
 // Search functionality with loading state
-searchBtn.addEventListener('click', async () => {
-    const searchQuery = searchInput.value.trim();
-    const category = categorySelect.value;
-    
-    if (searchQuery) {
-        // Add loading state
-        searchBtn.classList.add('loading');
-        searchBtn.disabled = true;
+if (searchBtn && searchInput && categorySelect) {
+    searchBtn.addEventListener('click', async () => {
+        const searchQuery = searchInput.value.trim();
+        const category = categorySelect.value;
         
-        try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            console.log('Searching for:', searchQuery, 'in category:', category);
-            alert(`Searching for "${searchQuery}" in ${category} category`);
-        } catch (error) {
-            console.error('Search failed:', error);
-            alert('Search failed. Please try again.');
-        } finally {
-            // Remove loading state
-            searchBtn.classList.remove('loading');
-            searchBtn.disabled = false;
+        if (searchQuery) {
+            // Add loading state
+            searchBtn.classList.add('loading');
+            searchBtn.disabled = true;
+            
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                console.log('Searching for:', searchQuery, 'in category:', category);
+                alert(`Searching for "${searchQuery}" in ${category} category`);
+            } catch (error) {
+                console.error('Search failed:', error);
+                alert('Search failed. Please try again.');
+            } finally {
+                // Remove loading state
+                searchBtn.classList.remove('loading');
+                searchBtn.disabled = false;
+            }
+        } else {
+            alert('Please enter a search term');
         }
-    } else {
-        alert('Please enter a search term');
-    }
-});
+    });
 
-// Enter key functionality for search
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        searchBtn.click();
-    }
-});
+    // Enter key functionality for search
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            searchBtn.click();
+        }
+    });
+}
 
 // Dropdown functionality
 const dropdownBtn = document.querySelector('.dropdown-btn');
@@ -112,8 +122,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth'
             });
             // Close mobile menu if open
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         }
     });
 });
@@ -123,69 +135,72 @@ const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
-let currentSlide = 0;
-let slideInterval;
 
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => {
-        dot.classList.remove('active');
-        dot.setAttribute('aria-selected', 'false');
-    });
-    
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-    dots[index].setAttribute('aria-selected', 'true');
-    currentSlide = index;
-}
+if (slides.length > 0 && dots.length > 0 && prevBtn && nextBtn) {
+    let currentSlide = 0;
+    let slideInterval;
 
-function nextSlide() {
-    showSlide((currentSlide + 1) % slides.length);
-}
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => {
+            dot.classList.remove('active');
+            dot.setAttribute('aria-selected', 'false');
+        });
+        
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        dots[index].setAttribute('aria-selected', 'true');
+        currentSlide = index;
+    }
 
-function prevSlide() {
-    showSlide((currentSlide - 1 + slides.length) % slides.length);
-}
+    function nextSlide() {
+        showSlide((currentSlide + 1) % slides.length);
+    }
 
-// Start slideshow
-function startSlideshow() {
-    slideInterval = setInterval(nextSlide, 3000);
-}
+    function prevSlide() {
+        showSlide((currentSlide - 1 + slides.length) % slides.length);
+    }
 
-// Stop slideshow
-function stopSlideshow() {
-    clearInterval(slideInterval);
-}
+    // Start slideshow
+    function startSlideshow() {
+        slideInterval = setInterval(nextSlide, 3000);
+    }
 
-// Event listeners for slideshow controls
-prevBtn.addEventListener('click', () => {
-    prevSlide();
-    stopSlideshow();
-    startSlideshow();
-});
+    // Stop slideshow
+    function stopSlideshow() {
+        clearInterval(slideInterval);
+    }
 
-nextBtn.addEventListener('click', () => {
-    nextSlide();
-    stopSlideshow();
-    startSlideshow();
-});
-
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        showSlide(index);
+    // Event listeners for slideshow controls
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
         stopSlideshow();
         startSlideshow();
     });
-});
 
-// Pause slideshow when hovering over controls
-[prevBtn, nextBtn, ...dots].forEach(element => {
-    element.addEventListener('mouseenter', stopSlideshow);
-    element.addEventListener('mouseleave', startSlideshow);
-});
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopSlideshow();
+        startSlideshow();
+    });
 
-// Start slideshow
-startSlideshow(); 
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            stopSlideshow();
+            startSlideshow();
+        });
+    });
+
+    // Pause slideshow when hovering over controls
+    [prevBtn, nextBtn, ...dots].forEach(element => {
+        element.addEventListener('mouseenter', stopSlideshow);
+        element.addEventListener('mouseleave', startSlideshow);
+    });
+
+    // Start slideshow
+    startSlideshow();
+} 
 
 // Ask a Librarian Chat Functionality
 
