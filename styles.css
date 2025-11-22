@@ -1152,6 +1152,7 @@ body {
     padding: 80px 20px 20px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
+    overflow-y: auto;
 }
 
 .mobile-menu.active {
@@ -1204,12 +1205,11 @@ body {
 
 .mobile-dropdown-menu {
     display: none;
-    padding-left: 1rem;
+    padding: 0.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     background: #f9fafb;
     border-radius: 0.5rem;
-    overflow: hidden;
 }
 
 .mobile-dropdown-menu.active {
@@ -1229,12 +1229,15 @@ body {
 }
 
 .mobile-dropdown-item {
-    display: block;
-    color: #374151;
+    display: block !important;
+    color: #374151 !important;
     text-decoration: none;
-    font-size: 1.125rem;
+    font-size: 1rem;
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #e5e7eb;
+    background: white;
+    min-height: 40px;
+    line-height: 1.5;
 }
 
 .mobile-dropdown-item:last-child {
@@ -1242,8 +1245,8 @@ body {
 }
 
 .mobile-dropdown-item:hover {
-    background: #e5e7eb;
-    color: #00703C;
+    background: #e5e7eb !important;
+    color: #00703C !important;
 }
 
 .mobile-login-btn {
