@@ -1210,11 +1210,33 @@ body {
     margin-bottom: 0.5rem;
     background: #f9fafb;
     border-radius: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .mobile-dropdown-menu.active {
     display: block !important;
     animation: slideDown 0.3s ease-out;
+}
+
+/* Custom scrollbar for mobile dropdown */
+.mobile-dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mobile-dropdown-menu::-webkit-scrollbar-track {
+    background: #e5e7eb;
+    border-radius: 3px;
+}
+
+.mobile-dropdown-menu::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 3px;
+}
+
+.mobile-dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
 }
 
 @keyframes slideDown {
