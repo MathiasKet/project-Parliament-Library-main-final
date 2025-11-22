@@ -18,12 +18,14 @@ if (mobileMenuBtn && mobileMenu) {
 
 // Handle mobile dropdowns
 mobileDropdownBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isExpanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', !isExpanded);
         const menu = btn.nextElementSibling;
         if (menu) {
             menu.classList.toggle('active');
+            console.log('Mobile dropdown toggled:', menu.classList.contains('active') ? 'opened' : 'closed');
         }
     });
 });
