@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Green Library Initiative - Parliament of Ghana's commitment to environmental sustainability in library services.">
+    <meta name="keywords" content="Green Library, Environmental Sustainability, Parliament of Ghana, Sustainable Practices, Eco-friendly Library">
+
+    <title>Green Library Initiative - Parliament of Ghana Library Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/green-library.css">
+    <style>
+        /* Get Involved Section Styles */
+        .get-involved {
+            background-color: #f9f9f9;
+            padding: 5rem 0;
+        }
+        
+        .involvement-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .involvement-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .involvement-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .involvement-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background-color: #f0f7f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .involvement-icon svg {
+            width: 30px;
+            height: 30px;
+            color: #1a472a;
+        }
+        
+        .involvement-card h3 {
+            color: #1a472a;
+            margin-bottom: 1rem;
+        }
+        
+        .involvement-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .involvement-form {
+            max-width: 700px;
+            margin: 4rem auto 0;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin: 0;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #1a472a;
+            color: #1a472a;
+        }
+        
+        .btn-outline:hover {
+            background: #1a472a;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .involvement-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Green Library Initiative",
+        "description": "Parliament of Ghana's commitment to environmental sustainability in library services through the Green Library Initiative.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Parliament of Ghana Library Services"
+        }
+    }
+    </script>
+</head>
+<body>
+    
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <!-- Header (harmonized) -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo-section" style="text-decoration: none; color: inherit;">
+                    <div class="logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo" class="parliament-logo" loading="lazy">
+                    </div>
+                    <div class="title-section">
+                        <h1>PARLIAMENT OF GHANA</h1>
+                        <p>LIBRARY SERVICES</p>
+                    </div>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn" aria-expanded="false">
+                            Digital Resources
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="digital-assets-menu">
+                            <a href="catalog.html" class="dropdown-item">Online Public Access Catalog (OPAC)</a>
+                            <a href="https://repository.parliament.gh/" class="dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
+                            <a href="#" class="dropdown-item">Database</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-btn" aria-expanded="false">
+                            Initiatives
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="initiatives-menu">
+                            <a href="green-library.html" class="dropdown-item" aria-current="page">Green Library</a>
+                            <a href="photo-library.html" class="dropdown-item">Photo Library</a>
+                        </div>
+                    </div>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Digital Resources</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-digital-assets-menu">
+                <a href="catalog.html" class="mobile-dropdown-item">Online Public Access Catalog (OPAC)</a>
+                <a href="https://repository.parliament.gh/" class="mobile-dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
+                <a href="#" class="mobile-dropdown-item">Database</a>
+            </div>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Initiatives</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-initiatives-menu">
+                <a href="green-library.html" class="mobile-dropdown-item" aria-current="page">Green Library</a>
+                <a href="photo-library.html" class="mobile-dropdown-item">Photo Library</a>
+            </div>
+            <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Green Library Initiative</h1>
+            <span class="hero-subtitle">Sustainability in Action</span>
+            <p class="hero-description">Leading the way in sustainable library services for a greener future in Ghana. Join us in our mission to reduce environmental impact while serving our community.</p>
+            <div class="hero-cta">
+                <a href="#get-involved" class="btn btn-primary">Get Involved</a>
+                <a href="#our-vision" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">Energy Reduction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Trees Planted</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Renewable Energy</span>
+                </div>
+            </div>
+    </section>
+
+    <main id="main-content">
+        <!-- About Section -->
+        <section id="our-vision" class="about-section section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Our Commitment</span>
+                    <h2 class="section-title">About Our Green Initiative</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-intro">The Parliament of Ghana Library Services is leading the way in environmental sustainability through our comprehensive Green Library Initiative. We're dedicated to reducing our ecological footprint while enhancing our services to the community.</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>Sustainable Library for a Greener Future</h3>
+                            <p>Our Green Library Initiative represents our commitment to environmental stewardship and sustainable development. We've implemented numerous eco-friendly practices across our facilities and services to minimize our environmental impact while maximizing our positive contribution to the community.</p>
+                            <div class="feature-highlights">
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>Energy Efficiency</h4>
+                                        <p>Reduced energy consumption by 40% through smart lighting and equipment upgrades</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>Sustainable Facilities</h4>
+                                        <p>Eco-friendly building materials and green spaces throughout our locations</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 8v4l3 3"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4>Community Impact</h4>
+                                        <p>Educational programs and resources to promote environmental awareness</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-image">
+                            <div class="image-wrapper">
+                                <img src="images/green-library-about.jpg" alt="Sustainable library environment" loading="lazy">
+                                <div class="experience-badge">
+                                    <span class="years">5+</span>
+                                    <span class="label">Years of Sustainable Excellence</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-box">
+                        <div class="cta-content">
+                            <h3>Join Our Mission</h3>
+                            <p>Become part of our sustainability journey and help us create a greener future for Ghana's library services.</p>
+                            <a href="#get-involved" class="btn btn-secondary">Get Involved</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-commitments section-padding">
+            <h2 class="section-title">Our Environmental Commitments</h2>
+            <div class="section-content">
+                <p class="commitment-intro">The Parliament of Ghana Library Services is committed to environmental sustainability through our Green Library Initiative. We believe in reducing our ecological footprint while continuing to provide excellent library services to our patrons.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </div>
+                        <h3>Energy Efficiency</h3>
+                        <p>Implementation of energy-efficient lighting and climate control systems throughout our facilities to reduce energy consumption.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                <polyline points="7 3v5h8"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Waste Reduction</h3>
+                        <p>Comprehensive recycling programs and initiatives to minimize paper waste and promote responsible resource use.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3>Digital Resources</h3>
+                        <p>Expanding our digital collection and e-resources to reduce the need for physical materials and paper usage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-commitments section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title">Our Environmental Commitments</h2>
+                <div class="commitments-grid">
+                    <div class="commitment-card">
+                        <h3>Sustainable Operations</h3>
+                        <ul class="checklist">
+                            <li>Use of eco-friendly cleaning products</li>
+                            <li>Energy-efficient equipment and appliances</li>
+                            <li>Water conservation measures</li>
+                            <li>Waste reduction and recycling programs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="commitment-card">
+                        <h3>Green Building</h3>
+                        <ul class="checklist">
+                            <li>Sustainable building materials</li>
+                            <li>Natural lighting optimization</li>
+                            <li>Indoor air quality management</li>
+                            <li>Energy-efficient HVAC systems</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="commitment-card">
+                        <h3>Community Engagement</h3>
+                        <ul class="checklist">
+                            <li>Environmental education programs</li>
+                            <li>Community clean-up initiatives</li>
+                            <li>Partnerships with green organizations</li>
+                            <li>Public awareness campaigns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="green-tips section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title">Green Tips & Resources</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>Reduce Paper Usage</h3>
+                        <p>Use digital resources and double-sided printing to minimize paper waste in your daily activities.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Energy Conservation</h3>
+                        <p>Turn off lights and electronics when not in use to save energy and reduce your carbon footprint.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Recycling Guide</h3>
+                        <p>Learn what materials can be recycled and how to properly sort your waste for recycling.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Sustainable Reading</h3>
+                        <p>Borrow e-books or audiobooks from our digital collection to reduce paper consumption.</p>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="resources/green-guide.html" class="btn btn-secondary" target="_blank">View Our Green Guide</a>
+                    <p class="small-text" style="margin-top: 10px; font-size: 0.9em; color: #666;">(Press Ctrl+P or Cmd+P to save as PDF)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Involved Section -->
+        <section id="get-involved" class="get-involved section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Take Action</span>
+                    <h2 class="section-title">Get Involved</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-intro">Join us in our mission to create a more sustainable future. Here's how you can contribute to our Green Library Initiative.</p>
+                </div>
+                
+                <div class="involvement-options">
+                    <div class="involvement-card">
+                        <div class="involvement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3>Become a Volunteer</h3>
+                        <p>Join our team of volunteers and help us implement green initiatives in our libraries.</p>
+                        <a href="#volunteer-form" class="btn btn-outline">Sign Up</a>
+                    </div>
+                    
+                    <div class="involvement-card">
+                        <div class="involvement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3>Share Your Ideas</h3>
+                        <p>Have suggestions for making our libraries more sustainable? We'd love to hear them!</p>
+                        <a href="#suggestions-form" class="btn btn-outline">Submit Ideas</a>
+                    </div>
+                    
+                    <div class="involvement-card">
+                        <div class="involvement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <h3>Partner With Us</h3>
+                        <p>Businesses and organizations can partner with us to support our green initiatives.</p>
+                        <a href="#partner-form" class="btn btn-outline">Partner Inquiry</a>
+                    </div>
+                </div>
+                
+                <div id="volunteer-form" class="involvement-form" style="display: none;">
+                    <h3>Volunteer Application</h3>
+                    <form id="volunteerForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Areas of Interest</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="interest" value="events"> Event Coordination</label>
+                                <label><input type="checkbox" name="interest" value="education"> Educational Programs</label>
+                                <label><input type="checkbox" name="interest" value="maintenance"> Garden Maintenance</label>
+                                <label><input type="checkbox" name="interest" value="other"> Other</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Why do you want to volunteer with us?</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </form>
+                </div>
+                
+                <div id="suggestions-form" class="involvement-form" style="display: none;">
+                    <h3>Share Your Suggestions</h3>
+                    <form id="suggestionForm">
+                        <div class="form-group">
+                            <label for="suggestionName">Your Name</label>
+                            <input type="text" id="suggestionName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="suggestionEmail">Email</label>
+                            <input type="email" id="suggestionEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="suggestion">Your Suggestion</label>
+                            <textarea id="suggestion" name="suggestion" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Suggestion</button>
+                    </form>
+                </div>
+                
+                <div id="partner-form" class="involvement-form" style="display: none;">
+                    <h3>Partnership Inquiry</h3>
+                    <form id="partnerForm">
+                        <div class="form-group">
+                            <label for="orgName">Organization Name</label>
+                            <input type="text" id="orgName" name="orgName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPerson">Contact Person</label>
+                            <input type="text" id="contactPerson" name="contactPerson" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="partnerEmail">Email</label>
+                            <input type="email" id="partnerEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="partnershipType">Type of Partnership</label>
+                            <select id="partnershipType" name="partnershipType" required>
+                                <option value="">Select an option</option>
+                                <option value="sponsorship">Sponsorship</option>
+                                <option value="collaboration">Program Collaboration</option>
+                                <option value="in-kind">In-Kind Donation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="proposal">Brief Proposal</label>
+                            <textarea id="proposal" name="proposal" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo">
+                        <div>
+                            <div class="footer-title">PARLIAMENT OF GHANA</div>
+                            <div class="footer-subtitle">LIBRARY SERVICES</div>
+                        </div>
+                    </div>
+                    <p class="footer-description">Serving Ghana's democratic process through comprehensive information services and research support.</p>
+                </div>
+                <div class="footer-nav">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="digital-catalog.html">Digital Catalog</a></li>
+                        <li><a href="parliamentary-documents.html">Parliamentary Documents</a></li>
+                        <li><a href="research-services.html">Research Services</a></li>
+                        <li><a href="library-policies.html">Library Policies</a></li>
+                        <li><a href="user-guides.html">User Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Parliament House, Accra, Ghana
+                        </li>
+                      <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +233 103 2971
+                        </li>
+                         <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            librarydepartment.parliament.gh
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>Monday - Friday</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span>Saturday</span>
+                            <span>Closed <span style="background: #fde7ea; color: #c1272d; border-radius: 0.7em; padding: 0.2em 0.8em; font-size: 0.95em; margin-left: 0.5em; display: inline-flex; align-items: center; gap: 0.3em;"><svg width="14" height="14" fill="none" stroke="#c1272d" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>Closed</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="stay-connected">
+                    <h3>Stay Connected</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="newsletter-text">Subscribe to our newsletter for updates on new documents and services.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="newsletter-button" aria-label="Send">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parliamentary Service of Ghana. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loader Script -->
+    <script src="js/loader.js"></script>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Handle form display based on URL hash
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show the appropriate form based on URL hash
+            function showFormFromHash() {
+                // Hide all forms first
+                document.querySelectorAll('.involvement-form').forEach(form => {
+                    form.style.display = 'none';
+                });
+                
+                // Show the form that matches the hash
+                const hash = window.location.hash;
+                if (hash) {
+                    const form = document.querySelector(hash + '-form');
+                    if (form) {
+                        form.style.display = 'block';
+                        form.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }
+            
+            // Handle form submissions
+            document.getElementById('volunteerForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your interest in volunteering! We will review your application and get back to you soon.');
+                this.reset();
+            });
+            
+            document.getElementById('suggestionForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your suggestion! We appreciate your input in making our library more sustainable.');
+                this.reset();
+            });
+            
+            document.getElementById('partnerForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your partnership inquiry! Our team will review your proposal and contact you shortly.');
+                this.reset();
+            });
+            
+            // Check for hash on page load
+            showFormFromHash();
+            
+            // Handle hash changes
+            window.addEventListener('hashchange', showFormFromHash);
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#' && !targetId.includes('-form')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+        }
+        
+        // Mobile dropdown menus
+        const dropdownButtons = document.querySelectorAll('.mobile-dropdown-btn');
+        dropdownButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const menu = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', !isExpanded);
+                menu.style.display = isExpanded ? 'none' : 'block';
+            });
+        });
+
+        // Newsletter thank you message
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterThankYou = document.getElementById('newsletterThankYou');
+        if (newsletterForm && newsletterThankYou) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                newsletterForm.style.display = 'none';
+                newsletterThankYou.style.display = 'block';
+            });
+        }
+    </script>
+    
+
+</body>
+</html>

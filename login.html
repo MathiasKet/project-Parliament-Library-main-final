@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Parliament of Ghana Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/Ghana_Parliament_Emblem.png">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <a href="index.html" class="login-logo">
+                    <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo">
+                </a>
+                <h1>Library Admin</h1>
+                <p>Sign in to access the admin dashboard</p>
+            </div>
+            <div id="feedback-message" class="feedback-message" aria-live="assertive"></div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Username</label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="email" name="email" placeholder="Enter your username" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember" name="remember">
+                        <span class="checkmark"></span>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span class="btn-text">Sign In</span>
+                    <i class="fas fa-sign-in-alt"></i>
+                </button>
+            </form>
+            <div class="login-footer">
+                <p>Having trouble? <a href="contact.html">Contact Support</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const togglePassword = document.querySelector('.toggle-password');
+            const passwordInput = document.getElementById('password');
+            const emailInput = document.getElementById('email');
+            const feedbackMessage = document.getElementById('feedback-message');
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('.btn-text');
+
+            // Hardcoded credentials
+            const validUsers = {
+                'admin': { password: 'admin123', role: 'admin', name: 'Admin User' },
+                'librarian': { password: 'librarian123', role: 'librarian', name: 'Librarian' }
+            };
+
+            // Check for saved email
+            const savedEmail = localStorage.getItem('rememberedEmail');
+            if (savedEmail) {
+                emailInput.value = savedEmail;
+                document.getElementById('remember').checked = true;
+            }
+
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isHidden = passwordInput.type === 'password';
+                passwordInput.type = isHidden ? 'text' : 'password';
+                const icon = this.querySelector('i');
+                icon.className = isHidden ? 'fas fa-eye-slash' : 'fas fa-eye';
+                this.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+            });
+
+            const showFeedback = (message, type) => {
+                feedbackMessage.textContent = message;
+                feedbackMessage.className = `feedback-message ${type} visible`;
+            };
+
+            // Handle form submission
+            loginForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const email = emailInput.value.trim();
+                const password = passwordInput.value;
+                const rememberMe = document.getElementById('remember').checked;
+
+                // Save email if remember me is checked
+                if (rememberMe) {
+                    localStorage.setItem('rememberedEmail', email);
+                } else {
+                    localStorage.removeItem('rememberedEmail');
+                }
+
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                const originalText = btnText.textContent;
+                btnText.textContent = 'Signing in...';
+
+                // Check credentials
+                const user = validUsers[email];
+                if (user && user.password === password) {
+                    // Store user in sessionStorage
+                    sessionStorage.setItem('isAuthenticated', 'true');
+                    sessionStorage.setItem('user', JSON.stringify({
+                        username: email,
+                        name: user.name,
+                        role: user.role
+                    }));
+                    window.location.href = 'admin-dashboard.html';
+                } else {
+                    showFeedback('Invalid username or password', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('loading');
+                }
+            });
+
+            // Check if already logged in and redirect
+            if (auth.isAuthenticated()) {
+                window.location.href = 'admin-dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html> 

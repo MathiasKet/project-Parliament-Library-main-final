@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-image {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #00703C;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Path Test</h1>
+    
+    <h2>Test 1: Relative path from root</h2>
+    <p>Path: /images/green-library.jpg</p>
+    <img src="/images/green-library.jpg" alt="Test 1" class="test-image">
+    
+    <h2>Test 2: Relative path from current directory</h2>
+    <p>Path: images/green-library.jpg</p>
+    <img src="images/green-library.jpg" alt="Test 2" class="test-image">
+    
+    <h2>Test 3: Full absolute path</h2>
+    <p>Path: file:///Users/korbiket/Desktop/project-Parliament%20Library/images/green-library.jpg</p>
+    <img src="file:///Users/korbiket/Desktop/project-Parliament%20Library/images/green-library.jpg" alt="Test 3" class="test-image">
+</body>
+</html>

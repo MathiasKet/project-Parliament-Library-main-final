@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Parliament of Ghana Library Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo" class="parliament-logo">
+                    </div>
+                    <div class="title-section">
+                        <h1>PARLIAMENT OF GHANA</h1>
+                        <p>LIBRARY SERVICES</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="catalog.html" class="nav-link">Online Catalog</a>
+                    <div class="dropdown">
+                        <button class="nav-link dropdown-btn">
+                            Initiatives
+                            <svg class="dropdown-icon" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="initiatives-menu">
+                            <a href="green-library.html" class="dropdown-item">Green Library</a>
+                            <a href="gallery.html" class="dropdown-item">Photo Library</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="nav-link dropdown-btn">
+                            Digital Assets
+                            <svg class="dropdown-icon" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="digital-library.html" class="dropdown-item">Digital Library</a>
+                            <a href="e-resources.html" class="dropdown-item">E-Resources</a>
+                            <a href="archives.html" class="dropdown-item">Archives</a>
+                            <a href="publications.html" class="dropdown-item">Publications</a>
+                            <a href="gallery.html" class="dropdown-item">Photo Library</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container" style="padding: 3rem 0;">
+        <h2>Reports</h2>
+        <p>This is the Reports page. Access parliamentary reports here.</p>
+        <a href="#" class="action-btn" style="background: #2196f3; color: #fff; border: none; border-radius: 0.5rem; padding: 0.7rem 1.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; display: inline-block; text-decoration: none;">Request Report</a>
+        <section class="reports-list-section" style="margin-top:2rem;">
+            <h2>Parliamentary Reports</h2>
+            <div style="margin-bottom:1rem;">
+                <label for="statusFilter" style="font-weight:600;">Filter by Status:</label>
+                <select id="statusFilter" style="padding:0.5rem; border-radius:0.5rem; border:1px solid #e5e7eb;">
+                    <option value="">All</option>
+                    <option value="Published">Published</option>
+                    <option value="Draft">Draft</option>
+                </select>
+            </div>
+            <div class="table-responsive">
+                <table id="publicReportsTable" style="width:100%; border-collapse:collapse;">
+                    <thead>
+                        <tr style="background:#f8f9fa;">
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Annual Report 2024</td><td>2024-06-01</td><td>Published</td></tr>
+                        <tr><td>Quarterly Report Q1</td><td>2024-03-31</td><td>Draft</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parliament of Ghana Library Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+    const reportsData = [
+        { title: 'Annual Report 2024', date: '2024-06-01', status: 'Published' },
+        { title: 'Quarterly Report Q1', date: '2024-03-31', status: 'Draft' }
+    ];
+    const reportsTable = document.getElementById('publicReportsTable').getElementsByTagName('tbody')[0];
+    const statusFilter = document.getElementById('statusFilter');
+    statusFilter.addEventListener('change', function() {
+        const stat = this.value;
+        reportsTable.innerHTML = '';
+        reportsData.filter(r => !stat || r.status === stat).forEach(r => {
+            reportsTable.innerHTML += `<tr><td>${r.title}</td><td>${r.date}</td><td>${r.status}</td></tr>`;
+        });
+        if (!reportsTable.innerHTML) reportsTable.innerHTML = '<tr><td colspan="3" style="text-align:center;color:#888;">No reports found.</td></tr>';
+    });
+    </script>
+</body>
+</html> 

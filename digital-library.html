@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - Parliament of Ghana Library Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo" class="parliament-logo">
+                    </div>
+                    <div class="title-section">
+                        <h1>PARLIAMENT OF GHANA</h1>
+                        <p>LIBRARY SERVICES</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="catalog.html" class="nav-link">Online Catalog</a>
+                    <div class="dropdown">
+                        <button class="nav-link dropdown-btn">
+                            Initiatives
+                            <svg class="dropdown-icon" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="initiatives-menu">
+                            <a href="green-library.html" class="dropdown-item">Green Library</a>
+                            <a href="gallery.html" class="dropdown-item">Photo Library</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="nav-link dropdown-btn">
+                            Digital Assets
+                            <svg class="dropdown-icon" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="digital-library.html" class="dropdown-item">Digital Library</a>
+                            <a href="e-resources.html" class="dropdown-item">E-Resources</a>
+                            <a href="archives.html" class="dropdown-item">Archives</a>
+                            <a href="publications.html" class="dropdown-item">Publications</a>
+                            <a href="gallery.html" class="dropdown-item">Photo Library</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container" style="padding: 3rem 0;">
+        <h2>Digital Library</h2>
+        <p>This is the Digital Library page. Access digital resources here.</p>
+        <section class="digital-uploads-section" style="margin-top:2rem;">
+            <h2>Digital Library Uploads</h2>
+            <div style="margin-bottom:1rem;">
+                <label for="digitalCategoryFilter" style="font-weight:600;">Filter by Category:</label>
+                <select id="digitalCategoryFilter" style="padding:0.5rem; border-radius:0.5rem; border:1px solid #e5e7eb;">
+                    <option value="">All</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Reports">Reports</option>
+                    <option value="Hansards">Hansards</option>
+                    <option value="Research">Research</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="table-responsive">
+                <table id="publicDigitalUploadsTable" style="width:100%; border-collapse:collapse;">
+                    <thead>
+                        <tr style="background:#f8f9fa;">
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Sample Bill Upload</td><td>Bills</td><td>2024-06-01</td><td>Unpublished</td></tr>
+                        <tr><td>Research Paper Upload</td><td>Research</td><td>2024-06-02</td><td>Published</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parliament of Ghana Library Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <div class="mobile-dropdown-menu" id="mobile-digital-assets-menu" role="menu">
+        <a href="digital-library.html" class="mobile-dropdown-item" role="menuitem">Digital Library</a>
+        <a href="e-resources.html" class="mobile-dropdown-item" role="menuitem">E-Resources</a>
+        <a href="archives.html" class="mobile-dropdown-item" role="menuitem">Archives</a>
+        <a href="publications.html" class="mobile-dropdown-item" role="menuitem">Publications</a>
+        <a href="gallery.html" class="mobile-dropdown-item" role="menuitem">Photo Library</a>
+        <a href="catalog.html" class="mobile-nav-link" aria-current="false">Online Catalog</a>
+        <a href="green-library.html" class="mobile-nav-link">Green Library</a>
+    </div>
+    <script>
+    const digitalUploadsData = [
+        { title: 'Sample Bill Upload', category: 'Bills', date: '2024-06-01', status: 'Unpublished' },
+        { title: 'Research Paper Upload', category: 'Research', date: '2024-06-02', status: 'Published' }
+    ];
+    const digitalUploadsTable = document.getElementById('publicDigitalUploadsTable').getElementsByTagName('tbody')[0];
+    const digitalCategoryFilter = document.getElementById('digitalCategoryFilter');
+    digitalCategoryFilter.addEventListener('change', function() {
+        const cat = this.value;
+        digitalUploadsTable.innerHTML = '';
+        digitalUploadsData.filter(d => !cat || d.category === cat).forEach(d => {
+            digitalUploadsTable.innerHTML += `<tr><td>${d.title}</td><td>${d.category}</td><td>${d.date}</td><td>${d.status}</td></tr>`;
+        });
+        if (!digitalUploadsTable.innerHTML) digitalUploadsTable.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#888;">No uploads found.</td></tr>';
+    });
+    </script>
+</body>
+</html> 

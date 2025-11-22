@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Library - Parliament of Ghana Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/Ghana_Parliament_Emblem.png">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo-section" style="text-decoration: none; color: inherit;">
+                    <div class="logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo" class="parliament-logo" loading="lazy">
+                    </div>
+                    <div class="title-section">
+                        <h1>PARLIAMENT OF GHANA</h1>
+                        <p>LIBRARY SERVICES</p>
+                    </div>
+                </a>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn" aria-expanded="false">
+                            Digital Resources
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="digital-assets-menu">
+                            <a href="catalog.html" class="dropdown-item">Online Public Access Catalog (OPAC)</a>
+                            <a href="https://repository.parliament.gh/" class="dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
+                            <a href="#" class="dropdown-item">Database</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-btn" aria-expanded="false">
+                            Initiatives
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="initiatives-menu">
+                            <a href="green-library.html" class="dropdown-item">Green Library</a>
+                            <a href="photo-library.html" class="dropdown-item" aria-current="page">Photo Library</a>
+                        </div>
+                    </div>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Digital Resources</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-digital-assets-menu">
+                <a href="catalog.html" class="mobile-dropdown-item">Online Public Access Catalog (OPAC)</a>
+                <a href="https://repository.parliament.gh/" class="mobile-dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
+                <a href="#" class="mobile-dropdown-item">Database</a>
+            </div>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Initiatives</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-initiatives-menu">
+                <a href="green-library.html" class="mobile-dropdown-item">Green Library</a>
+                <a href="photo-library.html" class="mobile-dropdown-item" aria-current="page">Photo Library</a>
+            </div>
+            <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+        </nav>
+    </div>
+
+    <main class="container" style="padding: 3rem 0;">
+        <div class="title-section" style="text-align: center; margin-bottom: 3rem;">
+            <h2>Photo Library</h2>
+            <p style="max-width: 800px; margin: 1rem auto; color: #666;">Explore our curated collection of historical and significant moments from the Parliament of Ghana.</p>
+        </div>
+
+        <div class="photo-grid">
+            <!-- Image 1 -->
+            <div class="photo-item">
+                <img src="images/Hon ASK Bagbin  on the Left.jpg" alt="Hon ASK Bagbin on the Left" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Hon ASK Bagbin on the Left</h3>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="photo-item">
+                <img src="images/Hon ASK Bagbin and Hon Osei Kyei Mensah Bonsu.jpg" alt="Hon ASK Bagbin and Hon Osei Kyei Mensah Bonsu" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Hon ASK Bagbin and Hon Osei Kyei Mensah Bonsu</h3>
+                </div>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="photo-item">
+                <img src="images/Hon E.T. Mensah , Left and Rt Hon Joyce Adeline Bamford-Addo,Speaker of 5 Parliament.jpg" alt="Hon E.T. Mensah , Left and Rt Hon Joyce Adeline Bamford-Addo,Speaker of 5 Parliament" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Hon E.T. Mensah , Left and Rt Hon Joyce Adeline Bamford-Addo,Speaker of 5 Parliament</h3>
+                </div>
+            </div>
+
+            <!-- Image 4 -->
+            <div class="photo-item">
+                <img src="images/Hon Freddie Blay ,, Middle.jpg" alt="Hon Freddie Blay ,, Middle" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Hon Freddie Blay ,, Middle</h3>
+                </div>
+            </div>
+
+            <!-- Image 5 -->
+            <div class="photo-item">
+                <img src="images/Hon J.H. Mensah.jpg" alt="Hon J.H. Mensah" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Hon J.H. Mensah</h3>
+                </div>
+            </div>
+
+            <!-- Image 6 -->
+            <div class="photo-item">
+                <img src="images/Middle Hon Edward Adjaho and Hon Osei Kyei Mensah Bonsu.jpg" alt="Middle Hon Edward Adjaho and Hon Osei Kyei Mensah Bonsu" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Middle Hon Edward Adjaho and Hon Osei Kyei Mensah Bonsu</h3>
+                </div>
+            </div>
+
+            <!-- Image 7 -->
+            <div class="photo-item">
+                <img src="images/Parliamentary staff football team.jpg" alt="Parliamentary staff football team" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Parliamentary staff football team</h3>
+                </div>
+            </div>
+
+            <!-- Image 8 -->
+            <div class="photo-item">
+                <img src="images/Parliamentary staff football team2.jpg" alt="Parliamentary staff football team 2" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Parliamentary staff football team 2</h3>
+                </div>
+            </div>
+
+            <!-- Image 9 -->
+            <div class="photo-item">
+                <img src="images/Rt Hon Ebenezer Sekyi Hughes ,Left.. Speaker of the 4 Parliament.jpg" alt="Rt Hon Ebenezer Sekyi Hughes ,Left.. Speaker of the 4 Parliament" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Rt Hon Ebenezer Sekyi Hughes ,Left.. Speaker of the 4 Parliament</h3>
+                </div>
+            </div>
+
+            <!-- Image 10 -->
+            <div class="photo-item">
+                <img src="images/Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the  Right in a handshake with dignitaries.jpg" alt="Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the Right in a handshake with dignitaries" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the Right in a handshake with dignitaries</h3>
+                </div>
+            </div>
+
+            <!-- Image 11 -->
+            <div class="photo-item">
+                <img src="images/Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the Left.jpg" alt="Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the Left" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the Left</h3>
+                </div>
+            </div>
+
+            <!-- Image 12 -->
+            <div class="photo-item">
+                <img src="images/Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the  Right.jpg" alt="Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the Right" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Rt Hon Peter Ala Adjetey ... Speaker of the 3rd Parliament on the Right</h3>
+                </div>
+            </div>
+
+            <!-- Image 13 -->
+            <div class="photo-item">
+                <img src="images/Rt Hon Speaker Justices D.F. Annan... Speaker of 1st and @nd Parliament.jpg" alt="Rt Hon Speaker Justices D.F. Annan... Speaker of 1st and 2nd Parliament" loading="lazy">
+                <div class="photo-caption">
+                    <h3>Rt Hon Speaker Justices D.F. Annan... Speaker of 1st and 2nd Parliament</h3>
+                </div>
+            </div>
+
+            <!-- Image 14 -->
+            <div class="photo-item">
+                <img src="images/The clerk to parliament, Clerks at Table and Marshal. Left, Mr Agombila, Mr Sonu, Mr Ayimadu ,Mr Apodolla and Col.Rtd Tawiah.jpg" alt="The clerk to parliament, Clerks at Table and Marshal" loading="lazy">
+                <div class="photo-caption">
+                    <h3>The clerk to parliament, Clerks at Table and Marshal</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
+            <div id="modalCaption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const closeBtn = document.querySelector('.close-modal');
+            const photoItems = document.querySelectorAll('.photo-item');
+
+            // Open modal when clicking on a photo item
+            photoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    const caption = this.querySelector('h3').textContent;
+                    
+                    modal.style.display = "block";
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt;
+                    modalCaption.textContent = caption;
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+
+            // Close modal actions
+            function closeModal() {
+                modal.style.display = "none";
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+
+            // Close when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === "block") {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parliament of Ghana Library Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

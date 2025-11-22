@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /parliament-library/
+    
+    # Handle CORS
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+    
+    # Handle API requests
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^admin/api/(.*)$ admin/api/$1 [L]
+
+    # Allow direct access to create_admin.php
+    RewriteCond %{REQUEST_URI} ^/parliament-library/create_admin\.php$ [NC]
+    RewriteRule . - [L]
+    
+    # Handle frontend routing
+    # RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteRule ^(.*)$ index.html [L]
+</IfModule> 

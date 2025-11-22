@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Members Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        table { border-collapse: collapse; width: 100%; margin-bottom: 2em; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background: #f0f0f0; }
+        form { margin-bottom: 2em; }
+        input, select, button { margin: 0.3em 0.5em 0.3em 0; padding: 0.4em; }
+        #memberMsg { margin-top: 1em; color: #00703C; font-weight: bold; }
+        .member-form-box {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            padding: 1.5em 2em 1.2em 2em;
+            max-width: 100%;
+            margin-bottom: 2em;
+            margin-top: 1em;
+            width: 100%;
+        }
+        .member-form-box label {
+            display: block;
+            margin-bottom: 0.7em;
+            font-weight: 500;
+            color: #333;
+        }
+        .member-form-box input,
+        .member-form-box select {
+            width: 100%;
+            padding: 0.6em 0.9em;
+            border: 1px solid #d0d0d7;
+            border-radius: 4px;
+            font-size: 1em;
+            background: #fff;
+            margin-top: 0.3em;
+            margin-bottom: 1em;
+            transition: border 0.2s;
+        }
+        .member-form-box input:focus,
+        .member-form-box select:focus {
+            border-color: #00703C;
+            outline: none;
+        }
+        .member-form-box .form-actions {
+            display: flex;
+            gap: 1em;
+            align-items: center;
+            margin-top: 0.5em;
+            justify-content: flex-end;
+        }
+        .member-form-box button {
+            background: #00703C;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 0.7em 1.5em;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .member-form-box button[type="button"] {
+            background: #e0e0e0;
+            color: #333;
+        }
+        .member-form-box button:hover {
+            background: #005c2a;
+        }
+        .member-form-box button[type="button"]:hover {
+            background: #d0d0d7;
+        }
+    </style>
+</head>
+<body class="admin-dashboard">
+    <main class="admin-main">
+        <header class="admin-header">
+            <h1>Members Management</h1>
+            <a href="admin-dashboard.html" class="btn btn-outline">Back to Dashboard</a>
+        </header>
+        <div class="card">
+            <div class="card-header">
+                <h3>Members List</h3>
+            </div>
+            <div class="card-body">
+                <table id="membersTable">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3>Add / Edit Member</h3>
+        <div class="member-form-box">
+            <form id="memberForm">
+                <input type="hidden" id="memberId">
+                <label>Username
+                    <input type="text" id="memberUsername" required>
+                </label>
+                <label>Email
+                    <input type="email" id="memberEmail" required>
+                </label>
+                <label>Password
+                    <input type="password" id="memberPassword" placeholder="(Leave blank to keep current)">
+                </label>
+                <label>Role
+                    <select id="memberRole" required>
+                        <option value="member">Member</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </label>
+                <div class="form-actions">
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="resetMemberForm()">Cancel</button>
+                </div>
+            </form>
+            <div id="memberMsg"></div>
+        </div>
+    </main>
+
+    <script type="module">
+      import auth from './js/auth.js';
+      if (!auth.isAuthenticated() || !auth.hasRole('admin')) {
+        window.location.href = 'login.html';
+      }
+    </script>
+
+    <script>
+    const token = localStorage.getItem('library_admin_token');
+
+    function loadMembers() {
+        fetch('admin/api/members.php', {
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.querySelector('#membersTable tbody');
+            tbody.innerHTML = '';
+            if (data.success && data.data.length) {
+                data.data.forEach(member => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${member.username}</td>
+                            <td>${member.email}</td>
+                            <td>${member.role}</td>
+                            <td>
+                                <button onclick="editMember(${member.id})">Edit</button>
+                                <button onclick="deleteMember(${member.id})">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            } else {
+                tbody.innerHTML = '<tr><td colspan="4">No members found.</td></tr>';
+            }
+        });
+    }
+
+    function editMember(id) {
+        fetch(`admin/api/members.php?id=${id}`, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                const m = data.data;
+                document.getElementById('memberId').value = m.id;
+                document.getElementById('memberUsername').value = m.username;
+                document.getElementById('memberEmail').value = m.email;
+                document.getElementById('memberRole').value = m.role;
+            }
+        });
+    }
+
+    function deleteMember(id) {
+        if (!confirm('Delete this member?')) return;
+        fetch(`admin/api/members.php?id=${id}`, {
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('memberMsg').textContent = data.message;
+            loadMembers();
+            resetMemberForm();
+        });
+    }
+
+    function resetMemberForm() {
+        document.getElementById('memberForm').reset();
+        document.getElementById('memberId').value = '';
+    }
+
+    document.getElementById('memberForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const id = document.getElementById('memberId').value;
+        const member = {
+            username: document.getElementById('memberUsername').value,
+            email: document.getElementById('memberEmail').value,
+            role: document.getElementById('memberRole').value
+        };
+        if (document.getElementById('memberPassword').value) {
+            member.password = document.getElementById('memberPassword').value;
+        }
+        fetch(`admin/api/members.php${id ? '?id=' + id : ''}`, {
+            method: id ? 'PUT' : 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(member)
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('memberMsg').textContent = data.message;
+            if (data.success) {
+                loadMembers();
+                resetMemberForm();
+            }
+        });
+    });
+
+    loadMembers();
+    </script>
+</body>
+</html> 

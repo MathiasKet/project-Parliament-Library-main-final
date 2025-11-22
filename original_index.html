@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official library services of the Parliament of Ghana. Access parliamentary documents, legal resources, research materials, and digital assets.">
+    <meta name="keywords" content="Parliament of Ghana, Library Services, Parliamentary Documents, Legal Resources, Research Materials, Digital Library">
+    <title>Parliament of Ghana - Library Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/green-library.css">
+    <link rel="icon" type="image/png" href="images/Ghana_Parliament_Emblem.png">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Library",
+        "name": "Parliament of Ghana Library Services",
+        "description": "Official library services of the Parliament of Ghana providing access to parliamentary documents, legal resources, and research materials.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Parliament House",
+            "addressLocality": "Accra",
+            "addressCountry": "Ghana"
+        },
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "telephone": "+233 103 2971",
+        "email": "librarydepartment.parliament.gh",
+        "url": "https://parliament.gh/library",
+        "sameAs": [
+            "https://twitter.com/ghanaparliament",
+            "https://facebook.com/ghanaparliament",
+            "https://linkedin.com/company/ghanaparliament"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo" class="parliament-logo" loading="lazy">
+                    </div>
+                    <div class="title-section">
+                        <h1>PARLIAMENT OF GHANA</h1>
+                        <p>LIBRARY SERVICES</p>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link" aria-current="page">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="catalog.html" class="nav-link">Online Catalog</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn" aria-expanded="false">
+                            Initiatives
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="initiatives-menu">
+                            <a href="green-library.html" class="dropdown-item">Green Library</a>
+                            <a href="photo-library.html" class="dropdown-item">Photo Library</a>
+                        </div>
+                    </div>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link" aria-current="page">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <a href="catalog.html" class="mobile-nav-link">Online Catalog</a>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Initiatives</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-initiatives-menu">
+                <a href="green-library.html" class="mobile-dropdown-item">Green Library</a>
+                <a href="photo-library.html" class="mobile-dropdown-item">Photo Library</a>
+            </div>
+            <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slideshow" role="region" aria-label="Library Image Slideshow">
+            <div class="slide active">
+                <img src="images/forntview.png" alt="Library front view" loading="lazy">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="slide">
+                <img src="images/sideview.png" alt="Library side view" loading="lazy">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="slide">
+                <img src="images/bookview.png" alt="Library book view" loading="lazy">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="slide">
+                <img src="images/booksview2.png" alt="Library books view" loading="lazy">
+                <div class="hero-overlay"></div>
+            </div>
+            <button class="slideshow-btn prev-btn" aria-label="Previous slide" aria-controls="hero-slideshow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="slideshow-btn next-btn" aria-label="Next slide" aria-controls="hero-slideshow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+            <div class="slideshow-dots" role="tablist" aria-label="Slideshow navigation">
+                <button class="dot active" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+                <button class="dot" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+                <button class="dot" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
+                <button class="dot" role="tab" aria-selected="false" aria-label="Go to slide 4"></button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>Parliamentary Library Services</h2>
+                <p>Access Ghana's parliamentary documents, legal resources, and research materials</p>
+                
+                <!-- Search Bar -->
+                <div class="search-container" role="search">
+                    <input type="text" id="searchInput" placeholder="Search documents, bills, acts, hansards..." aria-label="Search library resources">
+                    <select id="categorySelect" aria-label="Select search category">
+                        <option value="all">All Categories</option>
+                        <option value="bills">Bills & Acts</option>
+                        <option value="hansards">Hansards</option>
+                        <option value="reports">Reports</option>
+                    </select>
+                    <button class="search-btn" aria-label="Search">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Section -->
+    <section class="quick-access">
+        <div class="container">
+            <h3>Quick Access</h3>
+            <div class="quick-access-grid">
+                <!-- Bills & Acts -->
+                <div class="access-card bills">
+                    <div class="icon-container">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 9l7 7-1.5 1.5-7-7M5 21h4M3 17l6-6 4 4-6 6z"/>
+                        </svg>
+                    </div>
+                    <h4>Bills & Acts</h4>
+                    <p>Access current and historical parliamentary bills and enacted legislation</p>
+                    <a href="catalog.html" class="card-btn" style="text-decoration: none;">Browse Bills</a>
+                </div>
+
+                <!-- Hansards -->
+                <div class="access-card hansards">
+                    <div class="icon-container">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="16" rx="2"/>
+                            <line x1="8" y1="8" x2="16" y2="8"/>
+                            <line x1="8" y1="12" x2="16" y2="12"/>
+                            <line x1="8" y1="16" x2="12" y2="16"/>
+                        </svg>
+                    </div>
+                    <h4>Hansards</h4>
+                    <p>View official records of parliamentary debates and proceedings</p>
+                    <a href="catalog.html" class="card-btn" style="text-decoration: none;">View Hansards</a>
+                </div>
+
+                <!-- Reports -->
+                <div class="access-card reports">
+                    <div class="icon-container">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h4>Reports</h4>
+                    <p>Access research and committee reports</p>
+                    <a href="catalog.html" class="card-btn" style="text-decoration: none;">View Reports</a>
+                </div>
+
+                <!-- Research Services -->
+                <div class="access-card research">
+                    <div class="icon-container">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4l3 3"/>
+                        </svg>
+                    </div>
+                    <h4>Research Services</h4>
+                    <p>Request research assistance from our expert librarians</p>
+                    <a href="catalog.html" class="card-btn" style="text-decoration: none;">Research Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates Section -->
+    <section class="news-updates">
+        <div class="container">
+            <h3>Latest News & Updates</h3>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-date">June 12, 2024</div>
+                    <h4>New Digital Library Platform Launch</h4>
+                    <p>We're excited to announce the launch of our new digital library platform...</p>
+                    <a href="#" class="news-link">Read Full Story</a>
+                </article>
+                <article class="news-card">
+                    <div class="news-date">June 10, 2024</div>
+                    <h4>Library Hours Update</h4>
+                    <p>Starting next week, the library will extend its operating hours...</p>
+                    <a href="#" class="news-link">Read Full Story</a>
+                </article>
+                <article class="news-card">
+                    <div class="news-date">June 8, 2024</div>
+                    <h4>New Research Collection Available</h4>
+                    <p>A new collection of historical parliamentary documents has been digitized...</p>
+                    <a href="#" class="news-link">Read Full Story</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h3>Our Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h4>Research Support</h4>
+                    <p>Expert assistance for your parliamentary research needs</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h4>Document Access</h4>
+                    <p>Access to parliamentary documents and archives</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h4>Training Programs</h4>
+                    <p>Educational programs for parliamentary staff</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Green Library Initiative Section -->
+    <section class="green-initiative">
+        <div class="container">
+            <h3>Green Library Initiative</h3>
+            <div class="green-initiative-content">
+                <div class="initiative-text">
+                    <h4>Building a Sustainable Future</h4>
+                    <p>Our Green Library Initiative represents our commitment to environmental sustainability and responsible resource management. We're working towards creating a more eco-friendly library environment while maintaining our commitment to serving the community.</p>
+                    <div class="initiative-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <h5>Digital Transformation</h5>
+                            <p>Reducing paper usage through digital resources and e-books</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                                </svg>
+                            </div>
+                            <h5>Energy Efficiency</h5>
+                            <p>Implementing smart lighting and climate control systems</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                            </div>
+                            <h5>Waste Reduction</h5>
+                            <p>Comprehensive recycling and waste management programs</p>
+                        </div>
+                    </div>
+                    <a href="green-library.html" class="initiative-btn">Learn More About Our Green Initiatives</a>
+                </div>
+                <div class="initiative-image">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Green Library Initiative">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliated Associations Section -->
+    <section class="affiliated-associations">
+        <div class="container">
+            <h3>Affiliated Associations</h3>
+            <div class="associations-grid" role="list" aria-label="Affiliated associations">
+                <div class="association-item" role="listitem">
+                    <img src="images/aflianetwork_logo.jpeg" alt="AfLIA Logo" loading="lazy" />
+                    <div class="association-label">African Library and Information Associations and Institutions (AfLIA)</div>
+                </div>
+                <div class="association-item" role="listitem">
+                    <img src="images/images (2).png" alt="IFLA Logo" loading="lazy" />
+                    <div class="association-label">International Federation of Library Associations and Institutions (IFLA)</div>
+                </div>
+                <div class="association-item" role="listitem">
+                    <img src="images/images.jpeg" alt="ALA Logo" loading="lazy" />
+                    <div class="association-label">American Library Association (ALA)</div>
+                </div>
+                <div class="association-item" role="listitem">
+                    <img src="images/images (1).png" alt="Inter-Parliamentary Union Logo" class="ipu-logo" loading="lazy" />
+                    <div class="association-label">Inter-Parliamentary Union (IPU)</div>
+                </div>
+                <div class="association-item" role="listitem">
+                    <img src="images/images (3).png" alt="Ghana Library Association Logo" loading="lazy" />
+                    <div class="association-label">Ghana Library Association</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Assistance Section -->
+    <section class="research-assist">
+        <div class="research-assist-inner">
+            <h2>Need Research Assistance?</h2>
+            <p>Our experienced librarians are here to help with your parliamentary research needs</p>
+            <div class="assist-btns">
+                <a href="contact.html" class="assist-btn">
+                    <span class="assist-icon">
+                        <svg width="20" height="20" fill="none" stroke="#00703C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+                    </span> Contact Us
+                </a>
+                <a href="#" class="assist-btn" id="scheduleConsultationBtn">
+                    <span class="assist-icon">
+                        <svg width="20" height="20" fill="none" stroke="#00703C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </span> Schedule Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo">
+                        <div>
+                            <div class="footer-title">PARLIAMENT OF GHANA</div>
+                            <div class="footer-subtitle">LIBRARY SERVICES</div>
+                        </div>
+                    </div>
+                    <p class="footer-description">Serving Ghana's democratic process through comprehensive information services and research support.</p>
+                </div>
+                <div class="footer-nav">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="digital-library.php" class="quick-link" style="text-decoration: none;">Digital Catalog</a></li>
+                        <li><a href="parliamentary-documents.html" class="quick-link" style="text-decoration: none;">Parliamentary Documents</a></li>
+                        <li><a href="research-services.html" class="quick-link" style="text-decoration: none;">Research Services</a></li>
+                        <li><a href="#" class="quick-link" style="text-decoration: none;">Library Policies</a></li>
+                        <li><a href="#" class="quick-link" style="text-decoration: none;">User Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Parliament House, Accra, Ghana
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +233 103 2971
+                        </li>
+                         <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            ir@parliament.gh
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>Monday - Friday</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span>Saturday</span>
+                            <span>Closed <span style="background: #fde7ea; color: #c1272d; border-radius: 0.7em; padding: 0.2em 0.8em; font-size: 0.95em; margin-left: 0.5em; display: inline-flex; align-items: center; gap: 0.3em;"><svg width="14" height="14" fill="none" stroke="#c1272d" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>Closed</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="stay-connected">
+                    <h3>Stay Connected</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="newsletter-text">Subscribe to our newsletter for updates on new documents and services.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="newsletter-button" aria-label="Send">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parliamentary Service of Ghana. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Button -->
+    <div id="floating-chat-btn" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
+        <button id="mainChatBtn" style="background:#25d366;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 4px 16px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;font-size:2rem;cursor:pointer;transition:background 0.2s;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+        <div id="chatOptions" style="display:none;flex-direction:column;gap:8px;position:absolute;bottom:64px;right:0;background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);padding:12px 16px;min-width:180px;">
+            <button id="whatsappBtn" style="background:#25d366;color:#fff;border:none;border-radius:8px;padding:10px 0;font-size:1rem;cursor:pointer;width:100%;">Chat on WhatsApp</button>
+        </div>
+    </div>
+    <!-- On-page Chat Box -->
+    <div id="onPageChatBox" style="display:none;position:fixed;bottom:90px;right:24px;width:320px;max-width:95vw;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.18);z-index:10000;overflow:hidden;flex-direction:column;">
+        <div style="background:#00703C;color:#fff;padding:12px 16px;font-weight:600;display:flex;align-items:center;justify-content:space-between;">
+            <span>Live Chat</span>
+            <button id="closeOnPageChat" style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">&times;</button>
+        </div>
+        <div id="chatMessagesBox" style="flex:1;min-height:120px;max-height:220px;overflow-y:auto;padding:12px 16px;"></div>
+        <form id="chatFormBox" style="display:flex;gap:8px;padding:12px 16px;background:#f8f9fa;">
+            <input id="chatInputBox" type="text" placeholder="Type your message..." style="flex:1;padding:8px 12px;border-radius:8px;border:1px solid #e0e0e0;" required />
+            <button type="submit" style="background:#00703C;color:#fff;border:none;border-radius:8px;padding:8px 16px;">Send</button>
+        </form>
+        <div id="chatFallback" style="display:none;padding:12px 16px;text-align:center;">
+            <span>No one is available. <a id="emailFallback" href="#" style="color:#00703C;text-decoration:underline;">Send via Email</a></span>
+        </div>
+    </div>
+
+    <!-- Contact Modal (copied from services.html, only if not present) -->
+    <div id="contactModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+      <div style="background:#fff; border-radius:1rem; max-width:400px; width:90%; padding:2rem; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.18);">
+        <button id="closeContactModal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+        <div id="contactFormContainer">
+          <h3 style="margin-bottom:1rem; color:#137547;">Contact Us</h3>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required style="width:100%;margin-bottom:1rem;padding:0.7rem;border-radius:0.5rem;border:1px solid #e5e7eb;">
+            <input type="email" name="email" placeholder="Your Email" required style="width:100%;margin-bottom:1rem;padding:0.7rem;border-radius:0.5rem;border:1px solid #e5e7eb;">
+            <textarea name="message" placeholder="Your Message" required style="width:100%;margin-bottom:1rem;padding:0.7rem;border-radius:0.5rem;border:1px solid #e5e7eb;"></textarea>
+            <button type="submit" style="width:100%;background:#2196f3;color:#fff;border:none;border-radius:0.7rem;padding:0.9rem 0;font-size:1.1rem;font-weight:600;cursor:pointer;">Send</button>
+          </form>
+          <div id="contactThankYou" style="display:none;text-align:center;color:#137547;font-weight:600;margin-top:1.5rem;font-size:1.1rem;">Thank you for reaching out! We'll get back to you soon.</div>
+        </div>
+      </div>
+    </div>
+    <script>
+    // Modal open/close logic
+    const scheduleBtn = document.getElementById('scheduleConsultationBtn');
+    const contactModal = document.getElementById('contactModal');
+    const closeContactModal = document.getElementById('closeContactModal');
+    const contactForm = document.getElementById('contactForm');
+    const contactThankYou = document.getElementById('contactThankYou');
+    if(scheduleBtn && contactModal && closeContactModal) {
+      scheduleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        contactModal.style.display = 'flex';
+        contactForm.style.display = 'block';
+        contactThankYou.style.display = 'none';
+      });
+      closeContactModal.addEventListener('click', function() {
+        contactModal.style.display = 'none';
+      });
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        contactForm.style.display = 'none';
+        contactThankYou.style.display = 'block';
+      });
+      window.addEventListener('keydown', function(e) {
+        if(e.key === 'Escape') contactModal.style.display = 'none';
+      });
+    }
+    </script>
+
+    <script src="js/main.js"></script>
+    <script src="js/floating-chat.js"></script>
+    <script src="script.js"></script>
+    <script>
+    const searchBtn = document.querySelector('.search-btn');
+    const searchInput = document.getElementById('searchInput');
+    const resultsContainer = document.createElement('div');
+    resultsContainer.id = 'koha-search-results';
+    resultsContainer.style.marginTop = '1rem';
+    searchInput.parentNode.appendChild(resultsContainer);
+
+    searchBtn.addEventListener('click', function() {
+        const query = searchInput.value.trim();
+        if (!query) return;
+
+        resultsContainer.innerHTML = 'Searching...';
+
+        fetch(`https://YOUR_KOHA_API_URL/api/v1/biblios?query=${encodeURIComponent(query)}`, {
+            headers: {
+                'Authorization': 'Bearer YOUR_KOHA_API_KEY'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (!data || !data.biblios || data.biblios.length === 0) {
+                resultsContainer.innerHTML = '<p>No results found.</p>';
+                return;
+            }
+            // Display results
+            resultsContainer.innerHTML = '<h4>Search Results:</h4><ul>' +
+                data.biblios.map(biblio =>
+                    `<li>
+                        <strong>${biblio.title}</strong>
+                        ${biblio.author ? ' by ' + biblio.author : ''}
+                        ${biblio.publication_year ? ' (' + biblio.publication_year + ')' : ''}
+                    </li>`
+                ).join('') +
+                '</ul>';
+        })
+        .catch(err => {
+            resultsContainer.innerHTML = '<p style="color:red;">Error fetching results.</p>';
+            console.error(err);
+        });
+    });
+    </script>
+    <script>
+    // After displaying the user's message
+    setTimeout(() => {
+      chatMessagesBox.innerHTML += `<div style='margin-bottom:6px;text-align:left;'><span style='background:#f0f0f0;color:#333;padding:6px 12px;border-radius:12px 12px 12px 0;display:inline-block;'>Thank you for your message! A librarian will reply soon.</span></div>`;
+    }, 1000); // 1 second delay
+    </script>
+    <script>
+    chatFormBox.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = chatInputBox.value.trim();
+      if (!msg) return;
+      chatMessagesBox.innerHTML += `<div style='margin-bottom:6px;text-align:right;'><span style='background:#e0ffe0;color:#00703C;padding:6px 12px;border-radius:12px 12px 0 12px;display:inline-block;'>${msg}</span></div>`;
+      chatInputBox.value = '';
+      chatFallback.style.display = 'none';
+      clearTimeout(fallbackTimeout);
+
+      // Send to backend
+      fetch('http://localhost:3000/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      })
+      .then(res => res.json())
+      .then(data => {
+        chatMessagesBox.innerHTML += `<div style='margin-bottom:6px;text-align:left;'><span style='background:#f0f0f0;color:#333;padding:6px 12px;border-radius:12px 12px 12px 0;display:inline-block;'>${data.reply}</span></div>`;
+      })
+      .catch(() => {
+        chatMessagesBox.innerHTML += `<div style='margin-bottom:6px;text-align:left;'><span style='background:#f0f0f0;color:#c00;padding:6px 12px;border-radius:12px 12px 12px 0;display:inline-block;'>Sorry, there was an error.</span></div>`;
+      });
+
+      // Fallback if no reply in 1 minute
+      fallbackTimeout = setTimeout(() => {
+        chatFallback.style.display = 'block';
+      }, 60000);
+    });
+    </script>
+    <script>
+    function downloadFile(filePath) {
+        window.open('uploads/' + filePath, '_blank');
+    }
+    </script>
+    <script>
+    function deleteUpload(id) {
+        if (!confirm('Are you sure you want to delete this asset?')) return;
+        fetch(`admin/api/digital_assets.php?id=${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showAlert('Asset deleted', 'green');
+                loadUploads();
+            } else {
+                showAlert(data.message || 'Failed to delete asset', 'red');
+            }
+        })
+        .catch(() => showAlert('Network error', 'red'));
+    }
+    </script>
+    <script>
+    function togglePublish(id, currentStatus) {
+        const newStatus = currentStatus === 'published' ? 'unpublished' : 'published';
+        fetch(`admin/api/digital_assets.php?id=${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ status: newStatus })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showAlert('Status updated', 'green');
+                loadUploads();
+            } else {
+                showAlert(data.message || 'Failed to update status', 'red');
+            }
+        })
+        .catch(() => showAlert('Network error', 'red'));
+    }
+    </script>
+    <script>
+    function editUpload(id) {
+        // Fetch current data for the asset
+        fetch(`admin/api/digital_assets.php?id=${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.success) {
+                showAlert('Failed to load asset', 'red');
+                return;
+            }
+            const asset = data.data;
+            const newTitle = prompt('Edit Title:', asset.title);
+            if (newTitle === null) return; // Cancelled
+
+            const newDescription = prompt('Edit Description:', asset.description || '');
+            if (newDescription === null) return; // Cancelled
+
+            const newCategory = prompt('Edit Category:', asset.category);
+            if (newCategory === null) return; // Cancelled
+
+            fetch(`admin/api/digital_assets.php?id=${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    title: newTitle,
+                    description: newDescription,
+                    category: newCategory
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert('Asset updated', 'green');
+                    loadUploads();
+                } else {
+                    showAlert(data.message || 'Failed to update asset', 'red');
+                }
+            })
+            .catch(() => showAlert('Network error', 'red'));
+        });
+    }
+    </script>
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+
+    if (!token) {
+      document.getElementById('resetPasswordMsg').textContent = 'Invalid or missing token.';
+      document.getElementById('resetPasswordForm').style.display = 'none';
+    } else {
+      // Optionally validate token before showing form
+      fetch(`admin/api/validate_token.php?token=${encodeURIComponent(token)}`)
+        .then(res => res.json())
+        .then(data => {
+          if (!data.success) {
+            document.getElementById('resetPasswordMsg').textContent = data.message;
+            document.getElementById('resetPasswordForm').style.display = 'none';
+          }
+        });
+    }
+
+    document.getElementById('resetPasswordForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const password = document.getElementById('newPassword').value;
+      fetch('admin/api/reset_password.php', {
+        method: 'POST',
+        body: new URLSearchParams({ token, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('resetPasswordMsg').textContent = data.message;
+        if (data.success) {
+          document.getElementById('resetPasswordForm').style.display = 'none';
+        }
+      });
+    });
+    </script>
+</body>
+</html> 

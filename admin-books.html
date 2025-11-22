@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Books Management</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    table { border-collapse: collapse; width: 100%; margin-bottom: 2em; }
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background: #f0f0f0; }
+    form { margin-bottom: 2em; }
+    input, select, button { margin: 0.3em 0.5em 0.3em 0; padding: 0.4em; }
+    #bookMsg { margin-top: 1em; color: #00703C; font-weight: bold; }
+    .cover-img { max-width: 60px; max-height: 80px; }
+    .book-form-box {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      padding: 1.5em 2em 1.2em 2em;
+      max-width: 100%;
+      margin-bottom: 2em;
+      margin-top: 1em;
+      width: 100%;
+    }
+    .book-form-box label {
+      display: block;
+      margin-bottom: 0.7em;
+      font-weight: 500;
+      color: #333;
+    }
+    .book-form-box input,
+    .book-form-box textarea {
+      width: 100%;
+      padding: 0.6em 0.9em;
+      border: 1px solid #d0d0d7;
+      border-radius: 4px;
+      font-size: 1em;
+      background: #fff;
+      margin-top: 0.3em;
+      margin-bottom: 1em;
+      transition: border 0.2s;
+    }
+    .book-form-box input:focus,
+    .book-form-box textarea:focus {
+      border-color: #00703C;
+      outline: none;
+    }
+    .book-form-box .form-actions {
+      display: flex;
+      gap: 1em;
+      align-items: center;
+      margin-top: 0.5em;
+      justify-content: flex-end;
+    }
+    .book-form-box button {
+      background: #00703C;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.7em 1.5em;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .book-form-box button[type="button"] {
+      background: #e0e0e0;
+      color: #333;
+    }
+    .book-form-box button:hover {
+      background: #005c2a;
+    }
+    .book-form-box button[type="button"]:hover {
+      background: #d0d0d7;
+    }
+  </style>
+</head>
+<body class="admin-dashboard">
+    <main class="admin-main">
+        <header class="admin-header">
+            <h1>Books Management</h1>
+            <a href="admin-dashboard.html" class="btn btn-outline">Back to Dashboard</a>
+        </header>
+        <div class="card">
+            <div class="card-header">
+                <h3>Books List</h3>
+            </div>
+            <div class="card-body">
+                <table id="booksTable">
+                    <thead>
+                        <tr>
+                            <th>Cover</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Year</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3>Add / Edit Book</h3>
+        <div class="book-form-box">
+            <form id="bookForm">
+                <input type="hidden" id="bookId">
+                <label>Title
+                    <input type="text" id="bookTitle" required>
+                </label>
+                <label>Author
+                    <input type="text" id="bookAuthor" required>
+                </label>
+                <label>Category
+                    <input type="text" id="bookCategory" required>
+                </label>
+                <label>Publication Year
+                    <input type="number" id="bookYear" min="0">
+                </label>
+                <label>Publisher
+                    <input type="text" id="bookPublisher">
+                </label>
+                <label>Page Count
+                    <input type="number" id="bookPages" min="1">
+                </label>
+                <label>Language
+                    <input type="text" id="bookLanguage">
+                </label>
+                <label>ISBN
+                    <input type="text" id="bookISBN">
+                </label>
+                <label>Description
+                    <textarea id="bookDescription" rows="3"></textarea>
+                </label>
+                <div class="form-actions">
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="resetBookForm()">Cancel</button>
+                </div>
+            </form>
+            <div id="bookMsg"></div>
+        </div>
+
+        <h3>Upload Cover Image</h3>
+        <form id="coverForm">
+            <select id="coverBookId"></select>
+            <input type="file" id="coverFile" accept="image/*" required>
+            <button type="submit">Upload Cover</button>
+        </form>
+        <div id="coverMsg"></div>
+    </main>
+
+    <script type="module">
+      import auth from './js/auth.js';
+      if (!auth.isAuthenticated() || !auth.hasRole('admin')) {
+        window.location.href = 'login.html';
+      }
+    </script>
+
+    <script>
+    const token = localStorage.getItem('library_admin_token');
+
+    function loadBooks() {
+        fetch('admin/api/books.php', {
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.querySelector('#booksTable tbody');
+            const select = document.getElementById('coverBookId');
+            tbody.innerHTML = '';
+            select.innerHTML = '';
+            if (data.success && data.data.length) {
+                data.data.forEach(book => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${book.cover_image ? `<img src='uploads/book_covers/${book.cover_image}' class='cover-img'>` : ''}</td>
+                            <td>${book.title}</td>
+                            <td>${book.author}</td>
+                            <td>${book.category}</td>
+                            <td>${book.publication_year || ''}</td>
+                            <td>
+                                <button onclick="editBook(${book.id})">Edit</button>
+                                <button onclick="deleteBook(${book.id})">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                    select.innerHTML += `<option value='${book.id}'>${book.title}</option>`;
+                });
+            } else {
+                tbody.innerHTML = '<tr><td colspan="6">No books found.</td></tr>';
+            }
+        })
+        .catch(error => console.error(error));
+    }
+
+    function editBook(id) {
+        fetch(`admin/api/books.php?id=${id}`, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                const b = data.data;
+                document.getElementById('bookId').value = b.id;
+                document.getElementById('bookTitle').value = b.title;
+                document.getElementById('bookAuthor').value = b.author;
+                document.getElementById('bookCategory').value = b.category;
+                document.getElementById('bookYear').value = b.publication_year || '';
+                document.getElementById('bookPublisher').value = b.publisher || '';
+                document.getElementById('bookPages').value = b.page_count || '';
+                document.getElementById('bookLanguage').value = b.language || '';
+                document.getElementById('bookDescription').value = b.description || '';
+                document.getElementById('bookISBN').value = b.isbn || '';
+            }
+        })
+        .catch(error => console.error(error));
+    }
+
+    function deleteBook(id) {
+        if (!confirm('Delete this book?')) return;
+        fetch(`admin/api/books.php?id=${id}`, {
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('bookMsg').textContent = data.message;
+            loadBooks();
+            resetBookForm();
+        })
+        .catch(error => console.error(error));
+    }
+
+    function resetBookForm() {
+        document.getElementById('bookForm').reset();
+        document.getElementById('bookId').value = '';
+    }
+
+    document.getElementById('bookForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const id = document.getElementById('bookId').value;
+        const book = {
+            title: document.getElementById('bookTitle').value.trim(),
+            author: document.getElementById('bookAuthor').value.trim(),
+            category: document.getElementById('bookCategory').value.trim(),
+            publication_year: document.getElementById('bookYear').value,
+            publisher: document.getElementById('bookPublisher').value.trim(),
+            page_count: document.getElementById('bookPages').value,
+            language: document.getElementById('bookLanguage').value.trim(),
+            description: document.getElementById('bookDescription').value.trim(),
+            isbn: document.getElementById('bookISBN').value.trim()
+        };
+
+        // Simple validation
+        if (!book.title || !book.author || !book.category) {
+            document.getElementById('bookMsg').textContent = 'Title, Author, and Category are required.';
+            return;
+        }
+
+        const submitBtn = this.querySelector('button[type=submit]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Saving...';
+
+        fetch(`admin/api/books.php${id ? '?id=' + id : ''}`, {
+            method: id ? 'PUT' : 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(book)
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('bookMsg').textContent = data.message;
+            if (data.success) {
+                loadBooks();
+                resetBookForm();
+            }
+        })
+        .catch(error => console.error(error))
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Save';
+        });
+    });
+
+    document.getElementById('coverForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const bookId = document.getElementById('coverBookId').value;
+        const file = document.getElementById('coverFile').files[0];
+        if (!bookId || !file) return;
+        const formData = new FormData();
+        formData.append('cover', file);
+        fetch(`admin/api/upload_book_cover.php?book_id=${bookId}`, {
+            method: 'POST',
+            headers: { 'Authorization': 'Bearer ' + token },
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('coverMsg').textContent = data.message;
+            if (data.success) loadBooks();
+        })
+        .catch(error => console.error(error));
+    });
+
+    loadBooks();
+    </script>
+</body>
+</html>

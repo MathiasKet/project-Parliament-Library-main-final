@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Parliament of Ghana Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/Ghana_Parliament_Emblem.png">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5em;
+            margin-top: 2em;
+        }
+        .gallery-item {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            box-shadow: 0 6px 24px rgba(0,112,60,0.13);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .gallery-item img {
+            max-width: 100%;
+            max-height: 160px;
+            border-radius: 6px;
+            margin-bottom: 0.7em;
+            transition: box-shadow 0.2s;
+        }
+        .gallery-item .meta {
+            font-size: 0.95em;
+            color: #555;
+            text-align: center;
+        }
+        .spinner {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border: 3px solid #e0e0e0;
+            border-top: 3px solid #00703C;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 1em auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.45);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2em;
+            max-width: 95vw;
+            max-height: 90vh;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .modal-content img {
+            max-width: 70vw;
+            max-height: 60vh;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1em; right: 1em;
+            background: #eee;
+            border: none;
+            border-radius: 50%;
+            width: 32px; height: 32px;
+            font-size: 1.3em;
+            color: #333;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .modal-close:hover { background: #ddd; }
+        @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .modal-content img { max-width: 95vw; }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo-section" style="text-decoration: none; color: inherit;">
+                    <div class="logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo" class="parliament-logo" loading="lazy">
+                    </div>
+                    <div class="title-section">
+                        <h1>PARLIAMENT OF GHANA</h1>
+                        <p>LIBRARY SERVICES</p>
+                    </div>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn" aria-expanded="false">
+                            Digital Resources
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="digital-assets-menu">
+                            <a href="catalog.html" class="dropdown-item">Online Public Access Catalog (OPAC)</a>
+                            <a href="https://repository.parliament.gh/" class="dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
+                            <a href="#" class="dropdown-item">Database</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-btn" aria-expanded="false">
+                            Initiatives
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="initiatives-menu">
+                            <a href="green-library.html" class="dropdown-item">Green Library</a>
+                            <a href="photo-library.html" class="dropdown-item">Photo Library</a>
+                        </div>
+                    </div>
+                    <a href="gallery.html" class="nav-link" aria-current="page">Gallery</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link" >Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Digital Resources</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-digital-assets-menu">
+                <a href="catalog.html" class="mobile-dropdown-item">Online Public Access Catalog (OPAC)</a>
+                <a href="https://repository.parliament.gh/" class="mobile-dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
+                <a href="#" class="mobile-dropdown-item">Database</a>
+            </div>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Initiatives</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-initiatives-menu">
+                <a href="green-library.html" class="mobile-dropdown-item">Green Library</a>
+                <a href="photo-library.html" class="mobile-dropdown-item">Photo Library</a>
+            </div>
+            <a href="gallery.html" class="mobile-nav-link" aria-current="page">Gallery</a>
+        </nav>
+    </div>
+    <main class="container" style="padding: 3rem 0;">
+        <h2>Gallery</h2>
+        <div style="margin-bottom:1.5em;">
+            <label for="galleryCategoryFilter" style="font-weight:600;">Filter by Category:</label>
+            <select id="galleryCategoryFilter" style="padding:0.5rem; border-radius:0.5rem; border:1px solid #e5e7eb; min-width:160px;">
+                <option value="">All</option>
+            </select>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </main>
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal" title="Close">&times;</button>
+            <img id="modalImg" src="" alt="Gallery Image">
+            <div class="meta" id="modalMeta"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Parliament of Ghana Library Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+    const galleryGrid = document.getElementById('galleryGrid');
+    const imageModal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalMeta = document.getElementById('modalMeta');
+    const closeModal = document.getElementById('closeModal');
+    const galleryCategoryFilter = document.getElementById('galleryCategoryFilter');
+    let allImages = [];
+    let allCategories = [];
+
+    function showModal(img) {
+        modalImg.src = img.url;
+        modalImg.alt = img.original_name;
+        modalMeta.innerHTML = `
+            <div><strong>${img.original_name}</strong></div>
+            <div>Category: ${img.category || 'Uncategorized'}</div>
+            <div>By: ${img.uploaded_by}</div>
+            <div>${img.uploaded_at}</div>
+        `;
+        imageModal.classList.add('active');
+    }
+    closeModal.addEventListener('click', () => imageModal.classList.remove('active'));
+    imageModal.addEventListener('click', e => {
+        if (e.target === imageModal) imageModal.classList.remove('active');
+    });
+
+    async function loadCategories() {
+        // Sample categories data
+        allCategories = [
+            { id: 5, name: 'General Collection', description: 'General library photos and architecture' },
+            { id: 6, name: 'Recent Events', description: 'Recent library events and activities' }
+        ];
+    }
+
+    function populateCategoryFilter(images) {
+        // Only show categories that have images
+        const usedCatIds = new Set(images.map(img => img.category_id).filter(Boolean));
+        galleryCategoryFilter.innerHTML = '<option value="">All</option>';
+        allCategories.forEach(cat => {
+            if (usedCatIds.has(cat.id)) {
+                const opt = document.createElement('option');
+                opt.value = cat.id;
+                opt.textContent = cat.name;
+                galleryCategoryFilter.appendChild(opt);
+            }
+        });
+    }
+
+    function renderGallery(images) {
+        if (!images.length) {
+            galleryGrid.innerHTML = '<div>No images found for this category.</div>';
+            return;
+        }
+        galleryGrid.innerHTML = images.map((img, idx) => `
+            <div class="gallery-item" data-idx="${idx}">
+                <img src="${img.url}" alt="${img.original_name}">
+                <div class="meta">
+                    <div>${img.original_name}</div>
+                    <div>Category: ${img.category || 'Uncategorized'}</div>
+                    <div>By: ${img.uploaded_by}</div>
+                    <div>${img.uploaded_at}</div>
+                </div>
+            </div>
+        `).join('');
+        document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+            item.addEventListener('click', () => showModal(images[idx]));
+        });
+    }
+
+    async function loadGallery() {
+        galleryGrid.innerHTML = '<div class="spinner"></div>';
+        try {
+            // Local images data
+            allImages = [
+                {
+                    id: 1,
+                    url: 'images/greenlibrary 1.jpg',
+                    original_name: 'Green Library Exterior',
+                    category_id: 5,
+                    category: 'General Collection',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-01-15',
+                    description: 'Front view of the Green Library building'
+                },
+                {
+                    id: 2,
+                    url: 'images/green-library-about.jpg',
+                    original_name: 'Green Library Interior',
+                    category_id: 5,
+                    category: 'General Collection',
+                    uploaded_by: 'Librarian',
+                    uploaded_at: '2024-01-20',
+                    description: 'Interior view of the Green Library'
+                },
+                {
+                    id: 3,
+                    url: 'images/sideview.png',
+                    original_name: 'Library Side View',
+                    category_id: 5,
+                    category: 'General Collection',
+                    uploaded_by: 'Photographer',
+                    uploaded_at: '2024-01-25',
+                    description: 'Side view of the library building'
+                },
+                {
+                    id: 4,
+                    url: 'images/bookview.png',
+                    original_name: 'Book Collection',
+                    category_id: 5,
+                    category: 'General Collection',
+                    uploaded_by: 'Librarian',
+                    uploaded_at: '2024-02-01',
+                    description: 'View of the book collection in the library'
+                },
+                {
+                    id: 5,
+                    url: 'images/forntview.png',
+                    original_name: 'Library Front View',
+                    category_id: 5,
+                    category: 'General Collection',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-02-05',
+                    description: 'Front entrance view of the library'
+                },
+                {
+                    id: 6,
+                    url: 'images/IMG-20251121-WA0013.jpg',
+                    original_name: 'IMG-20251121-WA0013',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 7,
+                    url: 'images/IMG-20251121-WA0014.jpg',
+                    original_name: 'IMG-20251121-WA0014',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 8,
+                    url: 'images/IMG-20251121-WA0015.jpg',
+                    original_name: 'IMG-20251121-WA0015',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 9,
+                    url: 'images/IMG-20251121-WA0016.jpg',
+                    original_name: 'IMG-20251121-WA0016',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 10,
+                    url: 'images/IMG-20251121-WA0017.jpg',
+                    original_name: 'IMG-20251121-WA0017',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 11,
+                    url: 'images/IMG-20251121-WA0018.jpg',
+                    original_name: 'IMG-20251121-WA0018',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 12,
+                    url: 'images/IMG-20251121-WA0019.jpg',
+                    original_name: 'IMG-20251121-WA0019',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 13,
+                    url: 'images/IMG-20251121-WA0020.jpg',
+                    original_name: 'IMG-20251121-WA0020',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 14,
+                    url: 'images/IMG-20251121-WA0021.jpg',
+                    original_name: 'IMG-20251121-WA0021',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 15,
+                    url: 'images/IMG-20251121-WA0022.jpg',
+                    original_name: 'IMG-20251121-WA0022',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 16,
+                    url: 'images/IMG-20251121-WA0023.jpg',
+                    original_name: 'IMG-20251121-WA0023',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 17,
+                    url: 'images/IMG-20251121-WA0024.jpg',
+                    original_name: 'IMG-20251121-WA0024',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                },
+                {
+                    id: 18,
+                    url: 'images/IMG-20251121-WA0026.jpg',
+                    original_name: 'IMG-20251121-WA0026',
+                    category_id: 6,
+                    category: 'Recent Events',
+                    uploaded_by: 'Admin',
+                    uploaded_at: '2024-11-21',
+                    description: 'Event Photo'
+                }
+            ];
+            
+            populateCategoryFilter(allImages);
+            renderGallery(allImages);
+            
+        } catch (err) {
+            console.error('Error loading gallery:', err);
+            galleryGrid.innerHTML = '<div>Error loading gallery. ' + err.message + '</div>';
+        }
+    }
+
+    galleryCategoryFilter.addEventListener('change', function() {
+        const catId = this.value;
+        if (!catId) {
+            renderGallery(allImages);
+        } else {
+            const filtered = allImages.filter(img => String(img.category_id) === catId);
+            renderGallery(filtered);
+        }
+    });
+
+    (async function(){
+        await loadCategories();
+        await loadGallery();
+    })();
+    </script>
+</body>
+</html> 
