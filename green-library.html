@@ -93,6 +93,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 1rem;
+            box-sizing: border-box;
         }
         
         .form-group textarea {
@@ -129,8 +130,22 @@
         }
         
         @media (max-width: 768px) {
+            .get-involved {
+                padding: 3rem 0;
+            }
+            
             .involvement-options {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .involvement-card {
+                padding: 1.5rem;
+            }
+            
+            .involvement-form {
+                padding: 1.5rem;
+                margin: 2rem 1rem 0;
             }
         }
     </style>

@@ -889,6 +889,42 @@
         margin-bottom: 2rem;
     }
     
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .image-wrapper {
+        padding-top: 75%;
+    }
+    
+    .experience-badge {
+        bottom: 1rem;
+        left: 1rem;
+        padding: 1rem;
+        max-width: 150px;
+    }
+    
+    .years {
+        font-size: 2rem;
+    }
+    
+    .label {
+        font-size: 0.8rem;
+    }
+    
+    .cta-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .cta-box h3 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-box p {
+        font-size: 1rem;
+    }
+    
     .feature-card,
     .commitment-card,
     .involvement-card {
