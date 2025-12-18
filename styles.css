@@ -2365,6 +2365,41 @@ select {
     stroke: #00703C;
 }
 
+/* Library History Section */
+.library-history {
+    padding: 4rem 0;
+    background-color: #ffffff;
+}
+
+.library-history h2 {
+    text-align: center;
+    color: #00703C;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.history-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.history-content p {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.history-content p:last-child {
+    margin-bottom: 0;
+}
+
 /* Leadership Team Section */
 .leadership {
     padding: 4rem 0;
