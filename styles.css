@@ -388,9 +388,9 @@ body {
 }
 
 .logo {
-    width: 4rem;
-    height: 4rem;
-    background: linear-gradient(to bottom right, #ef4444, #fbbf24, #16a34a);
+    width: 5.5rem;
+    height: 5.5rem;
+    background: transparent;
     border-radius: 9999px;
     display: flex;
     align-items: center;
@@ -416,8 +416,8 @@ body {
 }
 
 .logo img.parliament-logo {
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
     object-fit: contain;
     display: block;
     margin: 0 auto;
@@ -2288,8 +2288,8 @@ select {
 }
 
 .logo img.parliament-logo {
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
     object-fit: contain;
     display: block;
     margin: 0 auto;
