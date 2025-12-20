@@ -36,6 +36,43 @@
 </head>
 <body>
     
+    <!-- First Visit Popup -->
+    <div id="firstVisitPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:99999; justify-content:center; align-items:center;">
+        <div style="background:#fff; border-radius:16px; padding:2.5rem; max-width:450px; width:90%; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.2); animation: popupFadeIn 0.3s ease;">
+            <img src="images/christmas-logo.png" alt="Parliament Logo" style="width:80px; height:80px; margin-bottom:1rem;">
+            <h2 style="color:#00703C; margin-bottom:1rem; font-size:1.5rem;">Welcome to Parliament Library!</h2>
+            <p style="color:#374151; margin-bottom:1.5rem; font-size:1.1rem;">Have you visited our Library Repository? Access thousands of parliamentary documents, research materials, and digital resources.</p>
+            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                <a href="catalog.html" id="goToRepoBtn" style="background:#00703C; color:#fff; padding:0.75rem 1.5rem; border-radius:8px; text-decoration:none; font-weight:600; transition:background 0.2s;">Visit Repository</a>
+                <button id="stayOnSiteBtn" style="background:#f3f4f6; color:#374151; padding:0.75rem 1.5rem; border-radius:8px; border:1px solid #e5e7eb; font-weight:600; cursor:pointer; transition:background 0.2s;">Stay on Site</button>
+            </div>
+        </div>
+    </div>
+    <style>
+        @keyframes popupFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        #firstVisitPopup a:hover { background: #005c32; }
+        #firstVisitPopup button:hover { background: #e5e7eb; }
+    </style>
+    <script>
+        (function() {
+            if (!localStorage.getItem('visitedBefore')) {
+                document.getElementById('firstVisitPopup').style.display = 'flex';
+                localStorage.setItem('visitedBefore', 'true');
+            }
+            document.getElementById('stayOnSiteBtn').addEventListener('click', function() {
+                document.getElementById('firstVisitPopup').style.display = 'none';
+            });
+            document.getElementById('firstVisitPopup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        })();
+    </script>
+
     <!-- Skip Navigation -->
     <a href="#main-content" class="skip-nav">Skip to main content</a>
 
