@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Official library services of the Parliamentary Service. Access parliamentary documents, legal resources, research materials, and digital assets.">
-    <meta name="keywords" content="Parliamentary Service, Library Services, Parliamentary Documents, Legal Resources, Research Materials, Digital Library">
-    <title>Parliamentary Service of Ghana - Library</title>
+    <meta name="description" content="Official library services of the Parliament of Ghana. Access parliamentary documents, legal resources, research materials, and digital assets.">
+    <meta name="keywords" content="Parliament of Ghana, Library Services, Parliamentary Documents, Legal Resources, Research Materials, Digital Library">
+    <title>Parliament of Ghana - Library</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/green-library.css">
     <link rel="icon" type="image/png" href="images/Ghana_Parliament_Emblem.png">
@@ -14,8 +14,8 @@
     {
         "@context": "https://schema.org",
         "@type": "Library",
-        "name": "Parliamentary Service of Ghana Library",
-        "description": "Official library services of the Parliamentary Service providing access to parliamentary documents, legal resources, and research materials.",
+        "name": "Parliament of Ghana Library",
+        "description": "Official library services of the Parliament of Ghana providing access to parliamentary documents, legal resources, and research materials.",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Parliament House",
@@ -82,10 +82,10 @@
             <div class="header-content">
                 <a href="index.html" class="logo-section" style="text-decoration: none; color: inherit;">
                     <div class="logo">
-                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliamentary Service Logo" class="parliament-logo" loading="lazy">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo" class="parliament-logo" loading="lazy">
                     </div>
                     <div class="title-section">
-                        <h1>PARLIAMENTARY SERVICE</h1>
+                        <h1>PARLIAMENT OF GHANA</h1>
                         <p>Library</p>
                     </div>
                 </a>
@@ -467,9 +467,9 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliamentary Service Logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo">
                         <div>
-                            <div class="footer-title">PARLIAMENTARY SERVICE</div>
+                            <div class="footer-title">PARLIAMENT OF GHANA</div>
                             <div class="footer-subtitle">Library</div>
                         </div>
                     </div>
@@ -561,7 +561,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Parliamentary Service of Ghana. All rights reserved.</p>
+                <p>&copy; 2024 Parliament of Ghana Library. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -794,137 +794,9 @@
         window.open('uploads/' + filePath, '_blank');
     }
     </script>
-    <script>
-    function deleteUpload(id) {
-        if (!confirm('Are you sure you want to delete this asset?')) return;
-        fetch(`admin/api/digital_assets.php?id=${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showAlert('Asset deleted', 'green');
-                loadUploads();
-            } else {
-                showAlert(data.message || 'Failed to delete asset', 'red');
-            }
-        })
-        .catch(() => showAlert('Network error', 'red'));
-    }
-    </script>
-    <script>
-    function togglePublish(id, currentStatus) {
-        const newStatus = currentStatus === 'published' ? 'unpublished' : 'published';
-        fetch(`admin/api/digital_assets.php?id=${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ status: newStatus })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showAlert('Status updated', 'green');
-                loadUploads();
-            } else {
-                showAlert(data.message || 'Failed to update status', 'red');
-            }
-        })
-        .catch(() => showAlert('Network error', 'red'));
-    }
-    </script>
-    <script>
-    function editUpload(id) {
-        // Fetch current data for the asset
-        fetch(`admin/api/digital_assets.php?id=${id}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (!data.success) {
-                showAlert('Failed to load asset', 'red');
-                return;
-            }
-            const asset = data.data;
-            const newTitle = prompt('Edit Title:', asset.title);
-            if (newTitle === null) return; // Cancelled
-
-            const newDescription = prompt('Edit Description:', asset.description || '');
-            if (newDescription === null) return; // Cancelled
-
-            const newCategory = prompt('Edit Category:', asset.category);
-            if (newCategory === null) return; // Cancelled
-
-            fetch(`admin/api/digital_assets.php?id=${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    title: newTitle,
-                    description: newDescription,
-                    category: newCategory
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    showAlert('Asset updated', 'green');
-                    loadUploads();
-                } else {
-                    showAlert(data.message || 'Failed to update asset', 'red');
-                }
-            })
-            .catch(() => showAlert('Network error', 'red'));
-        });
-    }
-    </script>
     <!-- Loader Script -->
     <script src="js/loader.js"></script>
     
-    <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
-
-    if (!token) {
-      document.getElementById('resetPasswordMsg').textContent = 'Invalid or missing token.';
-      document.getElementById('resetPasswordForm').style.display = 'none';
-    } else {
-      // Optionally validate token before showing form
-      fetch(`admin/api/validate_token.php?token=${encodeURIComponent(token)}`)
-        .then(res => res.json())
-        .then(data => {
-          if (!data.success) {
-            document.getElementById('resetPasswordMsg').textContent = data.message;
-            document.getElementById('resetPasswordForm').style.display = 'none';
-          }
-        });
-    }
-
-    document.getElementById('resetPasswordForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const password = document.getElementById('newPassword').value;
-      fetch('admin/api/reset_password.php', {
-        method: 'POST',
-        body: new URLSearchParams({ token, password })
-      })
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('resetPasswordMsg').textContent = data.message;
-        if (data.success) {
-          document.getElementById('resetPasswordForm').style.display = 'none';
-        }
-      });
-    });
-    </script>
 </body>
 </html> 
 

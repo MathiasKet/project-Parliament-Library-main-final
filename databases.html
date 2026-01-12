@@ -3,52 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Databases - Parliamentary Service Library</title>
+    <title>Databases - Parliament of Ghana Library</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
+   <!-- Header -->
+    <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
-                <div class="logo-section">
+                <a href="index.html" class="logo-section" style="text-decoration: none; color: inherit;">
                     <div class="logo">
-                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliamentary Service Logo" class="parliament-logo">
+                        <img src="images/Ghana_Parliament_Emblem.png" alt="Parliament of Ghana Logo" class="parliament-logo" loading="lazy">
                     </div>
                     <div class="title-section">
-                        <h1>PARLIAMENTARY SERVICE</h1>
+                        <h1>PARLIAMENT OF GHANA</h1>
                         <p>Library</p>
                     </div>
-                </div>
-                <nav class="main-nav">
+                </a>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About Us</a>
                     <a href="services.html" class="nav-link">Services</a>
-                    <a href="catalog.html" class="nav-link">Online Catalog</a>
                     <div class="dropdown">
-                        <button class="nav-link dropdown-btn">
+                        <button class="dropdown-btn" aria-expanded="false">
+                            Digital Resources
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="digital-assets-menu">
+                            <a href="catalog.html" class="dropdown-item">Online Public Access Catalogue (OPAC)</a>
+                            <a href="https://repository.parliament.gh/" class="dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
+                            <a href="databases.html" class="dropdown-item">Databases</a></div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-btn" aria-expanded="false">
                             Initiatives
-                            <svg class="dropdown-icon" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 8l4 4 4-4" />
                             </svg>
                         </button>
                         <div class="dropdown-menu" id="initiatives-menu">
                             <a href="green-library.html" class="dropdown-item">Green Library</a>
-                            <a href="gallery.html" class="dropdown-item">Photo Library</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <button class="nav-link dropdown-btn">
-                            Digital Resources
-                            <svg class="dropdown-icon" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu">
-                            <a href="catalog.html" class="dropdown-item">Online Public Access Catalogue (OPAC)</a>
-                            <a href="https://repository.parliament.gh/" class="dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
-                            <a href="databases.html" class="dropdown-item">Databases</a>
-                        </div>
-                    </div>
+                            <a href="photo-library.html" class="dropdown-item">Photo Library</a>
+                            </div></div>
                     <a href="gallery.html" class="nav-link">Gallery</a>
                 </nav>
             </div>
@@ -128,10 +132,42 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2024 Parliamentary Service Library. All rights reserved.</p>
+                <p>&copy; 2024 Parliament of Ghana Library. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Digital Resources</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-digital-assets-menu">
+                <a href="catalog.html" class="mobile-dropdown-item">Online Public Access Catalogue (OPAC)</a>
+                <a href="https://repository.parliament.gh/" class="mobile-dropdown-item" target="_blank" rel="noopener noreferrer">Institutional Repository</a>
+                <a href="databases.html" class="mobile-dropdown-item">Databases</a></div>
+            <button class="mobile-dropdown-btn" aria-expanded="false">
+                <span>Initiatives</span>
+                <svg class="dropdown-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 8l4 4 4-4" />
+                </svg>
+            </button>
+            <div class="mobile-dropdown-menu" id="mobile-initiatives-menu">
+                <a href="green-library.html" class="mobile-dropdown-item">Green Library</a>
+                <a href="photo-library.html" class="mobile-dropdown-item">Photo Library</a>
+                </div>
+            <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+           
+        </nav>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
