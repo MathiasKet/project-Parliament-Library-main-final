@@ -7,6 +7,8 @@
     <meta name="keywords" content="Green Library, Environmental Sustainability, Parliament of Ghana, Sustainable Practices, Eco-friendly Library">
 
     <title>Green Library Initiative - Parliament of Ghana Library</title>
+    <link rel="icon" type="image/png" href="images/Ghana_Parliament_Emblem.png">
+    <link rel="shortcut icon" href="images/Ghana_Parliament_Emblem.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/green-library.css">
     <style>
@@ -826,17 +828,8 @@
             });
         });
         
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenuBtn.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
-            });
-        }
+        // Mobile menu toggle - handled by script.js
+        // Removed duplicate declaration to avoid conflict
         
         // Mobile dropdown menus
         const dropdownButtons = document.querySelectorAll('.mobile-dropdown-btn');
